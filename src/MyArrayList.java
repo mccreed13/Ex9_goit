@@ -11,10 +11,16 @@ public class MyArrayList {
     }
 
     public Object get(int index) {
-        return array[index];
+        if(index > -1 && index < array.length) {
+            return array[index];
+        }
+        throw new ArrayIndexOutOfBoundsException();
     }
 
     public void remove(int index) {
+        if(index < 0 || index > array.length-1) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         for (int i = index; i<pointer; i++) {
             array[i] = array[i + 1];
         }
